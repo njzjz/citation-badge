@@ -12,8 +12,12 @@ app.use('/', function (req, res) {
 	
 	const req2 = https.request(options, res2 => {	
 	  res2.on('data', d => {
-		const { times_cited } = d.json();
-		res.redirect(301, `https://img.shields.io/badge/Citations-${times_cited}-blue`);
+		try {
+			const { times_cited } = JSON.parse(d);
+			res.redirect(301, `https://img.shields.io/badge/Citations-${times_cited}-blue`);
+		} catch (e) {
+			res.redirect(301, `https://img.shields.io/badge/Error-${e}-red`);
+		}
 	  })
 	})
 	
