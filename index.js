@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 app.use('/', function (req, res) {
-	res.setHeader('Cache-Control', 's-max-age=3600, stale-while-revalidate');
+	res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
 
 	// request citations
 	const https = require('https');
