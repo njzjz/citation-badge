@@ -18,7 +18,7 @@ app.use('/', function (req, res) {
 			const { times_cited } = JSON.parse(d);
 			res.redirect(301, `https://img.shields.io/badge/Citations-${times_cited}-blue`);
 		} catch (e) {
-			res.redirect(301, `https://img.shields.io/badge/Error-${e}-red`);
+			res.redirect(301, `https://img.shields.io/badge/Error-${d}-red`);
 		}
 	  })
 	})
